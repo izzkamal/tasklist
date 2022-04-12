@@ -4,22 +4,14 @@ use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TasksController;
 
-
 /*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
+ محاضرة 1
+-
+-
+-
 Route::get('/', function () {
     return view('welcome');
 });
-
 
 // Route::get('/about', function () {
 //     $name = 'izz';
@@ -47,7 +39,11 @@ Route::post('/store', function () {
     $name = request('name');
     return view('about', compact('name'));
 });
-
+*/
+/* محاضرة 2
+-
+-
+-
 Route::get('/tasks', function () {
     $tasks = [
         'first-task 1' => 'task 1',
@@ -71,4 +67,22 @@ Route::get('show/{id}', function ($id) {
 
 Route::get('/contact',[TaskController::class,'index']);
 Route::get('/contact/{id}',[TaskController::class,'show']);
+*/
 
+/* محاضرة 3
+-
+-
+-
+Route::get('app', function () {
+    return view('layout.app');
+});
+
+Route::get('/', function () {
+    return view('tasks');
+});
+
+*/
+
+Route::get('/', [TaskController::class ,'index']);
+Route::post('store', [TaskController::class ,'store']);
+Route::post('delete/{id}', [TaskController::class ,'delete']);
